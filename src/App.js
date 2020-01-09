@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoItem from './components/TodoItem';
-import todosData from './JSON/todosJSON';
+//import todosData from './JSON/todosJSON';
 // import productsData from "./JSON/productsJSON";
 // import Product from "./components/Product";
 
@@ -8,8 +8,8 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos: todosData,
-            isLoading: true
+            todos: [],
+            isLoading: false
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -34,14 +34,26 @@ class App extends React.Component {
     }
     
     componentDidMount() {
-        setTimeout(() => {
-            this.setState({
-                isLoading: false
-            })
-        }, 1500)
+        // setTimeout(() => {
+        //     this.setState({
+        //         isLoading: false
+        //     })
+        // }, 1500)
+        this.setState({isLoading: true});
+
+        fetch("https://jsonplaceholder.typicode.com/todos")
+        .then((res) => res.json())
+        .then((data) => {
+            this.setState({isLoading: false, todos: data});
+        })
     }
 
     render() {
+        // const myElementArray = [];
+        // for (const [key, value] of Object.entries(this.state.character)) {
+        //       myElementArray.push(<div><h2>{key}: {value}</h2><br /></div>); 
+        //   }
+
         const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item} changefunc={this.handleChange} />);
     
         return (
@@ -59,6 +71,18 @@ class App extends React.Component {
 
 export default App;
 
+
+// PRACTICE ON CODE PEN
+//  handleChange(event) {
+//     alert(event.target.value);
+//     let val = event.target.value;
+//     this.setState(prevState => {
+//       let arr = [...prevState.value, val];
+//       let unique = [...new Set(arr)];
+//       return {value: unique};
+//     });
+//     console.log(this.state.value);
+//   }
 
 
 

@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import TravelForm from './components/TravelForm';
 
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<TravelForm />, document.getElementById("root"));
 
 
 
