@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import TravelForm from './components/TravelForm';
+import './style.css';
+//import './index.css';
+//import App from './App';
+import MemeApp from './components/MemeApp';
 
 
-ReactDOM.render(<TravelForm />, document.getElementById("root"));
+ReactDOM.render(<MemeApp />, document.getElementById("root"));
 
 
 
