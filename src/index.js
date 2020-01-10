@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './style.css';
-//import './index.css';
+import './index.css';
 //import App from './App';
-import MemeApp from './components/MemeApp';
+
+import HooksApp from './components/HooksApp';
 
 
-ReactDOM.render(<MemeApp />, document.getElementById("root"));
+ReactDOM.render(<HooksApp />, document.getElementById("root"));
 
 
 
