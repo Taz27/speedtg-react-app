@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-//import App from './App';
-
-import HooksApp from './components/HooksApp';
+import './style.css';
+import App from './App';
 
 
-ReactDOM.render(<HooksApp />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
 
 
 
