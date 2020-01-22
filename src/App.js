@@ -1,12 +1,14 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 
 function App() {
-    const START_TIME = 5;
+    const START_TIME = 15;
     
     const [text, setText] = useState("");
     const [timeRemaining, setTimeRemaining] = useState(START_TIME);
     const [isTimeRunning, setIsTimeRunning] = useState(false);
     const [wordCount, setWordCount] = useState(0);
+    
+    const textAreaRef = useRef(null); 
 
     function handleChange(event) {
         const {value} = event.target;
@@ -22,6 +24,7 @@ function App() {
     useEffect(() => {
         //decrement time remaining every second
         if (isTimeRunning && timeRemaining > 0) {
+            
             setTimeout(() => {
                 setTimeRemaining(prevTR => prevTR - 1);
             }, 1000);
@@ -37,6 +40,9 @@ function App() {
         setWordCount(0);
         setTimeRemaining(START_TIME);
         setIsTimeRunning(true);
+        //put focus on text box 
+        textAreaRef.current.disabled = false;
+        textAreaRef.current.focus();
     }
 
     function endGame() {
@@ -51,6 +57,7 @@ function App() {
             <h1>SPEED TYPING GAME</h1>
             <h3>How fast do you type?</h3>
             <textarea 
+                ref={textAreaRef}
                 value={text} 
                 onChange={handleChange}
                 disabled={!isTimeRunning}
