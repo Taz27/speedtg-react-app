@@ -1,5 +1,6 @@
 import React from 'react';
 import useWordGame from './HOOKS/useWordGame';
+import CodedBy from './CodedBy';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
             <h4>Time Remaining: {timeRemaining}</h4>
             <button onClick={startGame} disabled={isTimeRunning}>{timeRemaining === 0 ? "Play Again" : "Start"}</button>
             <h1>Word Count: {wordCount}</h1>
+            <CodedBy />
         </div>
     );
 

@@ -1,5 +1,6 @@
 import {useState, useEffect, useRef} from "react";
 
+//Define a Custom Hook
 function useWordGame(startTime = 10) {
 
     const [text, setText] = useState("");
