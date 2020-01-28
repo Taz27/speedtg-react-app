@@ -3,9 +3,10 @@ import useWordGame from './HOOKS/useWordGame';
 import CodedBy from './CodedBy';
 
 function App() {
-
+    //Destructure the object returned by custom hook
     const {text, textAreaRef, handleChange, isTimeRunning, timeRemaining, startGame, wordCount} = useWordGame(15);
 
+    //Setup UI of the game
     return (
         <div>
             <h1>SPEED TYPING GAME</h1>
